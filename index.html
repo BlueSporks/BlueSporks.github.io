@@ -24,6 +24,7 @@
         import { log } from "./log.js"
         import { plusHandler, clickTab, changeStrength, changePremium, changeMilk, changePerk, changeTruck, changeDistribution, changeCapacity } from "./events.js"
         import { init } from "./init.js"
+        import { changeTheme, changeAccent } from "./settings.js"
         handlers.plusHandler = plusHandler
         handlers.clickTab = clickTab
         handlers.changeStrength = changeStrength
@@ -33,6 +34,8 @@
         handlers.changeTruck = changeTruck
         handlers.changeDistribution = changeDistribution
         handlers.changeCapacity = changeCapacity
+        handlers.changeTheme = changeTheme
+        handlers.changeAccent = changeAccent
         handlers.init = init
         setInterval(function() { api.updateTimers() }, 100)
         setTimeout(function() { d3.select('.bmc-btn-container').style('opacity',0.90) }, 1000)
@@ -175,6 +178,20 @@ limitations under the License.-->
     <div id="settings_tab" class="tab">
         <table id="settings">
 
+        <tr class="setting-section">
+        <td colspan="2"><div>Appearance</div></td>
+        </tr>
+        <tr class="setting-row">
+            <td class="setting-label">Theme:</td>
+            <td><select id="theme" onchange="handlers.changeTheme(event)">
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+            </select></td>
+        </tr>
+        <tr class="setting-row">
+            <td class="setting-label">Accent color:</td>
+            <td><input id="accent" type="color" value="#ff4a4a" onchange="handlers.changeAccent(event)"></td>
+        </tr>
 
         <tr class="setting-section">
         <td colspan="2"><div>Truck Settings</div></td>
@@ -400,7 +417,7 @@ limitations under the License.-->
             <td colspan="2"><div id="alt_recipe_settings"></div></td>
             </tr>
 
-    
+        <!--
         <tr class="setting-section">
         <td colspan="2"><span>Resources</span><hr></td>
         </tr>
@@ -409,7 +426,8 @@ limitations under the License.-->
         <td class="setting-label"></td>
         <td colspan="2"><div id="resource_settings"></div></td>
         </tr>
-
+        -->
+        
         </table>
     </div>
 

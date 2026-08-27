@@ -19,6 +19,16 @@
     /* blue link */
     --link: #70b8ff;
 }
+:root[data-theme="light"] {
+    --dark: #f4f4f2;
+    --dark-overlay: rgba(244, 244, 242, 0.8);
+    --medium: #e1e3e5;
+    --main: #ffffff;
+    --light: #d5d9dc;
+    --foreground: #242424;
+    --bright: #111111;
+    --link: #1769aa;
+}
 /* top-level/shared elements */
 body {
     font-family: sans-serif;
@@ -212,7 +222,7 @@ div.tabs button.active, div.tabs button.active:hover {
 div.tab {
     display: none;
     padding: 1em;
-    background-color: #474646;
+    background-color: var(--main);
 }
 #graph_tab {
     padding: 0px;

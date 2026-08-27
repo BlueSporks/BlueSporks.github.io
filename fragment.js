@@ -16,8 +16,19 @@ import { DEFAULT_TAB, currentTab } from "./events.js"
 import { spec, DEFAULT_PURITY, DEFAULT_BELT } from "./factory.js"
 import { Rational } from "./rational.js"
 
+export const DEFAULT_THEME = "dark"
+export const DEFAULT_ACCENT = "#ff4a4a"
+
 export function formatSettings() {
     let settings = ""
+    let theme = document.documentElement.dataset.theme || DEFAULT_THEME
+    let accent = document.documentElement.style.getPropertyValue("--accent") || DEFAULT_ACCENT
+    if (theme !== DEFAULT_THEME) {
+        settings += "theme=" + encodeURIComponent(theme) + "&"
+    }
+    if (accent.toLowerCase() !== DEFAULT_ACCENT) {
+        settings += "accent=" + encodeURIComponent(accent) + "&"
+    }
     if (currentTab !== DEFAULT_TAB) {
         settings += "tab=" + currentTab + "&"
     }
@@ -119,8 +130,8 @@ export function loadSettings(fragment) {
         if (i === -1) {
             continue
         }
-        let name = pair.substr(0, i)
-        let value = pair.substr(i + 1)
+        let name = decodeURIComponent(pair.substr(0, i))
+        let value = decodeURIComponent(pair.substr(i + 1))
         settings.set(name, value)
     }
     return settings

@@ -14,9 +14,33 @@ limitations under the License.*/
 import { DEFAULT_RATE, DEFAULT_RATE_PRECISION, DEFAULT_COUNT_PRECISION, longRateNames } from "./align.js"
 import { dropdown } from "./dropdown.js"
 import { DEFAULT_TAB, clickTab } from "./events.js"
+import { DEFAULT_ACCENT, DEFAULT_THEME } from "./fragment.js"
 import { spec, resourcePurities, DEFAULT_BELT } from "./factory.js"
 import { Rational } from "./rational.js"
 import { colors } from "./colors.js"
+
+function validAccent(value) {
+    return /^#[0-9a-f]{6}$/i.test(value) ? value : DEFAULT_ACCENT
+}
+
+export function applyAppearance(settings) {
+    let theme = settings.get("theme") === "light" ? "light" : DEFAULT_THEME
+    let accent = validAccent(settings.get("accent") || DEFAULT_ACCENT)
+    document.documentElement.dataset.theme = theme
+    document.documentElement.style.setProperty("--accent", accent)
+    d3.select("#theme").property("value", theme)
+    d3.select("#accent").property("value", accent)
+}
+
+export function changeTheme(event) {
+    document.documentElement.dataset.theme = event.target.value === "light" ? "light" : DEFAULT_THEME
+    spec.setHash()
+}
+
+export function changeAccent(event) {
+    document.documentElement.style.setProperty("--accent", validAccent(event.target.value))
+    spec.setHash()
+}
 
 // There are several things going on with this control flow. Settings should
 // work like this:
@@ -523,6 +547,7 @@ function renderResources(settings) {
 }
 
 export function renderSettings(settings) {
+    applyAppearance(settings)
     renderTargets(settings)
     renderIgnore(settings)
     //renderOverclock(settings)
