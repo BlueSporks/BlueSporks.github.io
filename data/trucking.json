@@ -1409,55 +1409,6 @@
         },
         "export": {}
     },
-    "Francis Intl. Airport": {
-        "job": "liberty",
-        "x": -3939.3083496094,
-        "y": 6844.8818359375,
-        "location": "-3939.3083496094, 6844.8818359375",
-        "rate": 10000,
-        "max": 10000,
-        "permissions": [
-            "trucker.job",
-            "trucker.liberty"
-        ],
-        "color": "255,125,0",
-        "pickup": {},
-        "recipes": {
-            "Deliver Liberty Goods x3": {
-                "reagents": {
-                    "liberty_goods": 3
-                },
-                "out_money": 0,
-                "in_money": 0,
-                "aptitudes": {
-                    "trucking.trucking": 15.75,
-                    "physical.strength": 15.75,
-                    "player.player": 15.75
-                },
-                "description": "Liberty Goods",
-                "products": {
-                    "liberty_voucher_islands": 3
-                }
-            },
-            "Deliver Liberty Goods": {
-                "reagents": {
-                    "liberty_goods": 1
-                },
-                "out_money": 0,
-                "in_money": 0,
-                "aptitudes": {
-                    "trucking.trucking": 5.25,
-                    "physical.strength": 5.25,
-                    "player.player": 5.25
-                },
-                "description": "Liberty Goods",
-                "products": {
-                    "liberty_voucher_islands": 1
-                }
-            }
-        },
-        "export": {}
-    },
     "Fridgit Co.": {
         "job": "fridge",
         "x": 918.49694824219,
@@ -4553,38 +4504,6 @@
                     "petrochem_diesel": 1,
                     "petrochem_petrol": 2,
                     "petrochem_kerosene": 1
-                }
-            }
-        },
-        "export": {}
-    },
-    "Rooftop": {
-        "job": "liberty",
-        "x": -2979.8818359375,
-        "y": 5741.8139648438,
-        "location": "-2979.8818359375, 5741.8139648438",
-        "rate": 10000,
-        "max": 10000,
-        "permissions": [
-            "trucker.job",
-            "trucker.liberty"
-        ],
-        "color": "255,125,0",
-        "pickup": {},
-        "recipes": {
-            "Trade for Rainbow Voucher": {
-                "reagents": {
-                    "liberty_voucher_portland": 1,
-                    "liberty_voucher_shoreside": 1,
-                    "liberty_voucher_staunton": 1,
-                    "liberty_voucher_islands": 1
-                },
-                "out_money": 0,
-                "in_money": 0,
-                "aptitudes": [],
-                "description": "Rainbow Voucher",
-                "products": {
-                    "rainbow_voucher": 1
                 }
             }
         },

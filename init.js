@@ -36,7 +36,7 @@ function loadData(settings) {
 export function init() {
 //    log.add('log','Update info March 13th: \n- Fixed fridge meat usage from storage')
 //    log.add('info','Update January 24th 2025: \n- Added Farmers Milk boost to settings.')
-      log.add('info','Update August 27th 2026: \n- New Document Maintainer. \n- New Map In-Progress')
+      log.add('info','Update August 27th 2026: \n- Everything has been revamped')
     let settings = loadSettings(window.location.hash)
     loadData(settings)
 }
