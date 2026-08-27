@@ -117,7 +117,7 @@ const map_list = [
             nativeZooms: [3,4,5,6,7],
             noWrap: true,
             bounds: [{ lat: -6566, lng: -4735 }, { lat: 7166, lng: 8906 }],
-            reuseTiles : true
+            reuseTiles : false
         })
     },
     { 
@@ -128,7 +128,7 @@ const map_list = [
             nativeZooms: [3,4,5,6,7],
             noWrap: true,
             bounds: [{ lat: -6566, lng: -4735 }, { lat: 7166, lng: 8906 }],
-            reuseTiles : true
+            reuseTiles : false
         })
     },
 ];
