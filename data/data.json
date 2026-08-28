@@ -77,6 +77,16 @@
         }
     ],
     "buildings": [
+ {
+            "name": "Market (Gas Station)",
+            "key_name": "market-gas-station",
+            "category": "market-gas-station",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
         {
             "name": "Bristols Fuel Storage",
             "key_name": "bristols-fuel-storage",
@@ -1894,6 +1904,14 @@
         "weight": "2",
         "stack_size": "1000"
     },
+        {
+        "name": "Export Jerry Can Empty",
+        "key_name": "export-jerry-can-empty",
+        "tier": "-1",
+        "category": "commercial",
+        "weight": "2",
+        "stack_size": "1000"
+    },
     {
         "name": "Karin Futo",
         "key_name": "vehicle-shipment|futo|karin-futo|car",
@@ -1961,6 +1979,25 @@
 ],
     "recipes": [
     {
+        "name": "Jerry Can Empty",
+        "key_name": "jerry-can-empty",
+        "category": "bristols-fuel-storage",
+        "time": 1,
+        "ingredients": [
+            [
+                "jerry-can-empty",
+                10
+            ]
+        ],
+        "product": [
+            ["export-jerry-can-empty",
+            10]
+        ],
+        "weight": 20,
+        "cost": 0,
+        "pays": 4000
+    },
+        {
         "name": "Battery",
         "key_name": "batteries",
         "category": "ls-factory",
@@ -4776,6 +4813,11 @@
     }
 ],
     "resources": [
+        {
+            "key_name": "jerry-can-empty",
+            "category": "market-gas-station",
+             "cost": 3500
+        },
         {
             "key_name": "recycled-trash",
             "category": "recycling-center"

@@ -91,7 +91,7 @@ limitations under the License.-->
         <button class="tab_button" id="graph_button" onclick="handlers.clickTab('graph')">Planner</button>
         <button class="tab_button" id="totals_button" onclick="handlers.clickTab('totals')">Items</button>
         <button class="tab_button" id="storage_button" onclick="handlers.clickTab('storage')">Storage</button>
-    <!----> <button class="tab_button" id="map_button" onclick="handlers.clickTab('map')">Map</button>
+    <!--- <button class="tab_button" id="map_button" onclick="handlers.clickTab('map')">Map</button>-->
         <button class="tab_button" id="settings_button" onclick="handlers.clickTab('settings')">Settings</button>
         <button class="tab_button" id="log_button" onclick="handlers.clickTab('log')">Log</button>
         <button class="tab_button" id="about_button" onclick="handlers.clickTab('about')">About</button>
@@ -177,21 +177,6 @@ limitations under the License.-->
 
     <div id="settings_tab" class="tab">
         <table id="settings">
-
-        <tr class="setting-section">
-        <td colspan="2"><div>Appearance</div></td>
-        </tr>
-        <tr class="setting-row">
-            <td class="setting-label">Theme:</td>
-            <td><select id="theme" onchange="handlers.changeTheme(event)">
-                <option value="dark">Dark</option>
-                <option value="light">Light</option>
-            </select></td>
-        </tr>
-        <tr class="setting-row">
-            <td class="setting-label">Accent color:</td>
-            <td><input id="accent" type="color" value="#ff4a4a" onchange="handlers.changeAccent(event)"></td>
-        </tr>
 
         <tr class="setting-section">
         <td colspan="2"><div>Truck Settings</div></td>
@@ -437,11 +422,10 @@ limitations under the License.-->
 
     <div id="about_tab" class="tab">
     <div class="about-content">
-        <p>This calculator was created by Bouncer up was updated and now maintaned by parzival.rp1. It is based on a calculator for Satisfactory by Kirk McDonald.</p>
+        <p>This calculator was created by Bouncer up was updated by parzival.rp1. It is based on a calculator for Satisfactory by Kirk McDonald.</p>
         <p>Most emojis are designed by <a href="https://openmoji.org/">OpenMoji</a> – the open-source emoji and icon project. License: CC BY-SA 4.0.</p>
         <p>Data provided by <a href="https://github.com/glitchdetector">glitchdetector</a></p>
         <p>The source code can be found at <a href="https://github.com/BlueSporks/BlueSporks.github.io">https://github.com/BlueSporks/BlueSporks.github.io</a>. This project is licensed under the Apache License 2.0.</p>
-        <p>Please report any issues to parzival.rp1 on Discord.</p>
     </div>
     </div>
 </body>

@@ -187,7 +187,12 @@ export function displayItems(spec, totals, ignore) {
             .classed("display-row", true)
             
     row.append("td")
-        .attr("style", d => ("width:10px; padding:0px; background-color: " + d3.rgb(colorList[d.building.color]).darker()))
+        .attr("style", d => {
+            let background = d.building === null
+                ? "transparent"
+                : d3.rgb(colorList[d.building.color]).darker()
+            return "width:10px; padding:0px; background-color: " + background
+        })
 
 
     // items
@@ -345,7 +350,7 @@ export function displayItems(spec, totals, ignore) {
         .style("display","none")
 
     row.selectAll("tt.source").filter(d => !d.multirow)
-        .text(d => d.building.name)
+        .text(d => d.building === null ? "" : d.building.name)
 
 
 

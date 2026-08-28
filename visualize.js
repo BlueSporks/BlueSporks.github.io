@@ -27,6 +27,12 @@ const columnWidth = 150
 const maxNodeHeight = 100
 const minNodeHeight = 38
 
+function buildingColor(building, fallback) {
+    return building && building.color != null
+        ? d3.color(colorList[building.color])
+        : d3.color(fallback)
+}
+
 const colorList = [
     colors.Red[700], // base
     colors.Blue[700], // foundry
@@ -371,7 +377,7 @@ export function renderTotals(totals, targets, ignore) {
                 .attr("d", d3.sankeyLinkHorizontal())
                 .attr("fill", "none")
                 .attr("stroke-opacity", 0.3)
-                .attr("stroke", d => d3.color(colorList[d.source.building.color]).brighter())
+                .attr("stroke", d => buildingColor(d.source && d.source.building, "#AAAAAA").brighter())
                 .attr("stroke-width", d => Math.max(2, d.width) - 1)
                 .on("click", function(d) {
                     if(d3.select(this).attr("stroke-opacity") == 0.3) {
@@ -451,8 +457,12 @@ export function renderTotals(totals, targets, ignore) {
                     .attr("y", d => d.y0)
                     .attr("height", d => Math.max(d.y1 - d.y0, minNodeHeight))
                     .attr("width", d => d.x1 - d.x0)
-                    .attr("fill", d => d.name == "output" ? d3.rgb("#AAAAAA").darker() : d3.rgb(colorList[d.building.color]).darker())
-                    .attr("stroke", d => d.name == "output" ? d3.rgb("#AAAAAA") : d3.color(colorList[d.building.color]))
+                    .attr("fill", d => d.name == "output"
+                        ? d3.rgb("#AAAAAA").darker()
+                        : buildingColor(d.building, "#AAAAAA").darker())
+                    .attr("stroke", d => d.name == "output"
+                        ? d3.rgb("#AAAAAA")
+                        : buildingColor(d.building, "#AAAAAA"))
                     .style('opacity',0.9)
 
                 r.filter(d => d.name != "output")
@@ -462,7 +472,18 @@ export function renderTotals(totals, targets, ignore) {
                         .attr("y", d => (d.y0 + d.y1) / 2 - d.textoffset + 0)
                         .attr("height", iconSize)
                         .attr("width", iconSize)
-                        .attr("xlink:href", d => (d.count.isZero() ? `` : `${d.building.iconPath()}`))
+                        .attr("xlink:href", d => {
+                            if (d.recipe && d.recipe.category === "market-gas-station") {
+                                return "images/market-gas-station.png"
+                            }
+                            if (d.building) {
+                                return d.building.iconPath()
+                            }
+                            if (d.recipe && d.recipe.category) {
+                                return `images/${d.recipe.category}.png`
+                            }
+                            return ``
+                        })
                 r.filter(d => d.name != "output").append("text")
                         .attr("x", d => d.x0 + iconSize + 4)
                         .attr("y", d => (d.y0 + d.y1) / 2 - d.textoffset - 10)
@@ -483,7 +504,7 @@ export function renderTotals(totals, targets, ignore) {
                             .attr("dy", "0.35em")
                             .attr("text-anchor", "start")
                             .attr("class", "item-location")
-                            .text(d => (d.count.isZero() ? `${d.building.name}` : `${d.building.name}`))
+                            .text(d => !d.building ? "" : `${d.building.name}`)
                 r.filter(d => d.pertrip).append("text")
                     .attr("x", d => d.x0 + iconSize + 4)
                     .attr("y", d => (d.y0 + d.y1) / 2 - d.textoffset + 24)
@@ -522,7 +543,7 @@ export function renderTotals(totals, targets, ignore) {
             update.select('.item-location').transition(anim)
                 .attr("x", d => d.x0 + iconSize + 4)
                 .attr("y", d => (d.y0 + d.y1) / 2 - d.textoffset + 12)
-                .text(d => (d.count.isZero() ? `${d.building.name}` : `${d.building.name}`))
+                .text(d => !d.building ? "" : `${d.building.name}`)
             update.select('.item-ingredient').transition(anim)
                 .attr("x", d => d.x0 + iconSize + 4)
                 .attr("y", d => (d.y0 + d.y1) / 2 - d.textoffset + 24)

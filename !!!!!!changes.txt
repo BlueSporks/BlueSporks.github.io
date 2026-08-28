@@ -14,7 +14,9 @@ Fixed Refined Aluminum Name
 Fixed Airline Meal Recipe
 Fixed Defib Charging Kit Icon
 Added Price to Meth
-
+Added Market (Gas Station)
 
 Finish Processed Food
-Fix jerry can
+Check jerry can buy price
+Is Petrol Fuel (the jerry cans filled with Petrol) Sellable at a location?
+same for plane, helicopter, and desiel
