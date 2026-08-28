@@ -237,7 +237,6 @@ div.tab {
 }
 
 #targets {
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
     min-height: 54px;
