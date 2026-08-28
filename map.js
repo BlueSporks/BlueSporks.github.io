@@ -40,13 +40,18 @@ export function updateMap(totals) {
 
     offsets = {};
 
+    let mapFrame = document.getElementsByTagName("iframe")[0]
+    if (!mapFrame || !mapFrame.contentWindow) {
+        return
+    }
+
     // reset lines
-    document.getElementsByTagName("iframe")[0].contentWindow.resetLines();
+    mapFrame.contentWindow.resetLines();
 
     // add lines
     totals.forEach(function(i) {
         if(i.target.building.name !== "Output" && i.source.building.x !== undefined && i.target.building.x !== undefined) {
-           document.getElementsByTagName("iframe")[0].contentWindow.addLine([i.source.building.x + offset(i.source), i.source.building.y + offset(i.source)], [i.target.building.x + offset(i.target), i.target.building.y + offset(i.target)], colorList[i.source.building.color]);
+           mapFrame.contentWindow.addLine([i.source.building.x + offset(i.source), i.source.building.y + offset(i.source)], [i.target.building.x + offset(i.target), i.target.building.y + offset(i.target)], colorList[i.source.building.color]);
         }
     });
 }

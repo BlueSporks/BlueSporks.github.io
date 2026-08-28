@@ -1,0 +1,20 @@
+Fixed Sand - Now Sellable
+Fixed Houses - Added Token delivery, not able to get per trip to 100% work due it being a weightless item
+Removed All Liberty Items
+Fixed Logging Camp Name
+Added Great Chaparral Farm
+Added Vegetables
+Added Grapeseed Farms
+Added Processed Food
+Added Roxite Mine
+Fixed Propane - Now Sellable
+Added Bristols Fuel Storage
+Fixed Copper Wire Spool Name
+Fixed Refined Aluminum Name
+Fixed Airline Meal Recipe
+Fixed Defib Charging Kit Icon
+Added Price to Meth
+
+
+Finish Processed Food
+Fix jerry can

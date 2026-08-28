@@ -326,7 +326,9 @@ class FactorySpecification {
 
                 if(tripRate <= 1 || attempt) {
                     searching = false;
-                    var tripCount = Math.ceil(rate / tripRate)
+                    var tripCount = recipe.key === "export-house_token"
+                        ? recipe.ingredients.reduce((total, ingredient) => total + ingredient.amount.toFloat() * rate, 0) / 3
+                        : Math.ceil(rate / tripRate)
 
                     for(let item in items) {
                         let triptext = [];
@@ -382,7 +384,6 @@ class FactorySpecification {
                         items[i].storage[storages[s][0]] = itemAmount;
                         //items[i].storage['total'] += itemAmount;
                         storages[s][1] -= itemAmount * items[i].item.weight.toFloat();
-
                     } else {
                         items[i]["storage"]["inventory"] = rate;
                         items[i]["storage"]["total"] = rate;
@@ -391,7 +392,9 @@ class FactorySpecification {
             }
 
             // texts
-            var tripCount = Math.ceil(rate / (tripRate - target));
+            var tripCount = recipe.key === "export-house_token"
+                ? recipe.ingredients.reduce((total, ingredient) => total + ingredient.amount.toFloat() * rate, 0) / 3
+                : Math.ceil(rate / (tripRate - target));
             for(let item in items) {
                 let triptext = [];
                 if(this.capacity.totaltrailer > 0) {

@@ -1778,15 +1778,40 @@
         "export": {
             "House Construction": {
                 "reagents": {
-                    "refined_planks": 2,
-                    "crafted_concrete": 1,
-                    "crafted_ceramictiles": 4,
-                    "crafted_copperwire": 1,
-                    "crafted_computer": 1,
-                    "crafted_rebar": 1
+                    "house_token": 1
                 },
                 "description": "Construct a House",
-                "out_money": 2350000,
+                "out_money": 350000,
+                "in_money": 0,
+                "aptitudes": {
+                    "trucking.trucking": 87.49,
+                    "physical.strength": 87.49,
+                    "player.player": 87.49
+                },
+                "products": []
+            }
+        }
+    },
+    "House Token Delivery": {
+        "job": "trucker",
+        "x": 1376.887939,
+        "y": -739.772034,
+        "location": "1376.887939, -739.772034",
+        "rate": 10000,
+        "max": 10000,
+        "permissions": [
+            "trucker.job"
+        ],
+        "color": "255,125,0",
+        "pickup": {},
+        "recipes": {},
+        "export": {
+            "House Token Delivery": {
+                "reagents": {
+                    "export_house_token": 3
+                },
+                "description": "Deliver Tokens",
+                "out_money": 200000,
                 "in_money": 0,
                 "aptitudes": {
                     "trucking.trucking": 87.49,

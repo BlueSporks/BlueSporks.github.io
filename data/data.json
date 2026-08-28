@@ -1,5 +1,5 @@
 {
-    "belts": [
+     "belts": [
         {
             "name": "None",
             "key_name": "none",
@@ -77,6 +77,96 @@
         }
     ],
     "buildings": [
+        {
+            "name": "Bristols Fuel Storage",
+            "key_name": "bristols-fuel-storage",
+            "category": "bristols-fuel-storage",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Davis Mega Mall",
+            "key_name": "davis-mega-mall",
+            "category": "davis-mega-mall",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Roxite Mine",
+            "key_name": "roxite-mine",
+            "category": "roxite-mine",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Lombart Bay Sugar Mill",
+            "key_name": "lombart-bay-sugar-mill",
+            "category": "lombart-bay-sugar-mill",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Roxwood Loft",
+            "key_name": "roxwood-loft",
+            "category": "roxwood-loft",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Roxwood Marina",
+            "key_name": "roxwood-marina",
+            "category": "roxwood-marina",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Roxwood Fruit Market",
+            "key_name": "roxwood-fruit-market",
+            "category": "roxwood-fruit-market",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Great Chaparral Farm",
+            "key_name": "great-chaparral-farm",
+            "category": "great-chaparral-farm",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
+        {
+            "name": "Grapeseed Farms",
+            "key_name": "grapeseed-farms",
+            "category": "grapeseed-farms",
+            "power": 1,
+            "max": 1,
+            "color": 10,
+            "x": 3462.9860839844,
+            "y": 3682.5251464844
+        },
         {
             "name": "Chemical Laboratories",
             "key_name": "chemical-laboratories",
@@ -248,6 +338,16 @@
             "y": -386.93804931641
         },
         {
+            "name": "House Token Delivery",
+            "key_name": "export-house_token",
+            "category": "export-house_token",
+            "power": 1,
+            "max": 1,
+            "color": 8,
+            "x": 98.938095092773,
+            "y": -386.93804931641
+        },
+        {
             "name": "Pop's Pills",
             "key_name": "pops-pills",
             "category": "pops-pills",
@@ -336,16 +436,6 @@
             "color": 13,
             "x": -1014.5861816406,
             "y": -2234.5297851563
-        },
-        {
-            "name": "Defib Kit Charging",
-            "key-name": "defibkit-charging",
-            "category": "defibkit-charging",
-            "power": "1",
-            "max": "1",
-            "color": 13,
-            "x": 661.08178710938,
-            "y": 169.87127685547
         },
         {
             "name": "Defib Kit Charging",
@@ -580,7 +670,7 @@
             "y": -1854.6618652344
         },
         {
-            "name": "Log Camp",
+            "name": "Logging Camp",
             "key-name": "log-camp",
             "category": "log-camp",
             "base-rate": 1,
@@ -640,7 +730,7 @@
             "y": 6455.52832
         },
         {
-            "name": "Liquour Ace",
+            "name": "Liquor Ace",
             "key_name": "liquor-ace",
             "category": "liquor-ace",
             "power": 1,
@@ -916,7 +1006,7 @@
         "stack_size": "56"
     },
     {
-        "name": "Copper Wire",
+        "name": "Copper Wire Spool",
         "key_name": "copperwire",
         "tier": "2",
         "category": "special",
@@ -924,7 +1014,7 @@
         "stack_size": "450"
     },
     {
-        "name": "Deliver Copper Wire",
+        "name": "Deliver Copper Wire Spool",
         "key_name": "export-copperwire",
         "tier": "-1",
         "category": "special",
@@ -1059,13 +1149,21 @@
         "weight": "5",
         "stack_size": "1800"
     },
-    {
-        "name": "House",
-        "key_name": "house",
+      {
+        "name": "House Token",
+        "key_name": "house_token",
         "tier": "4",
         "category": "special",
         "weight": "0",
-        "stack_size": "27"
+        "stack_size": "3"
+    },
+     {
+        "name": "Deliver House Token",
+        "key_name": "export-house_token",
+        "tier": "-1",
+        "category": "special",
+        "weight": "0",
+        "stack_size": "3"
     },
     {
         "name": "Jewelry",
@@ -1148,6 +1246,14 @@
         "stack_size": "360"
     },
     {
+        "name": "Export Propane",
+        "key_name": "export-propane",
+        "tier": "-1",
+        "category": "petrochem",
+        "weight": "25",
+        "stack_size": "360"
+    },
+    {
         "name": "Quarry Rubble",
         "key_name": "recycled-rubble",
         "tier": "0",
@@ -1172,7 +1278,7 @@
         "stack_size": "900"
     },
     {
-        "name": "Gas",
+        "name": "Raw Gas",
         "key_name": "gas",
         "tier": "7",
         "category": "petrochem",
@@ -1220,7 +1326,7 @@
         "stack_size": "100"
     },
     {
-        "name": "Refined Aluminium",
+        "name": "Refined Aluminum",
         "key_name": "refined-aluminum",
         "tier": "2",
         "category": "commercial",
@@ -1335,6 +1441,14 @@
         "name": "Sand",
         "key_name": "refined-sand",
         "tier": "2",
+        "category": "commercial",
+        "weight": "5",
+        "stack_size": "1800"
+    },
+     {
+        "name": "Sand",
+        "key_name": "export-refined-sand",
+        "tier": "-1",
         "category": "commercial",
         "weight": "5",
         "stack_size": "1800"
@@ -1498,6 +1612,7 @@
         "category": "illegal",
         "weight": "10",
         "stack_size": "1000"
+        
     },
     {
         "name": "Pills",
@@ -1692,7 +1807,7 @@
         "stack_size": "1000"
     },
     {
-        "name": "Annis Zr-350",
+        "name": "Annis ZR-350",
         "key_name": "vehicle-shipment|zr350|annis-zr-350|car",
         "tier": "5",
         "category": "commercial",
@@ -1922,6 +2037,25 @@
         "cost": 1500,
         "pays": 0
     },
+     {
+        "name": "Deliver Sand",
+        "key_name": "refined-sand",
+        "category": "quarry",
+        "time": 1,
+        "ingredients": [
+            [
+                "refined-sand",
+                1
+            ]
+        ],
+        "product": [
+            ["export-refined-sand",
+            1]
+        ],
+        "weight": 25,
+        "cost": 0,
+        "pays": 1500
+    },
     {
         "name": "Ceramic Tiles",
         "key_name": "ceramictiles",
@@ -2142,12 +2276,31 @@
             ]
         ],
         "product": [
-            ["house",
+            ["house_token",
             1]
         ],
         "weight": 0,
         "cost": 0,
-        "pays": 2350000
+        "pays": 350000
+    },
+    {
+        "name": "House Token Delivery",
+        "key_name": "export-house_token",
+        "category": "export-house_token",
+        "time": 1,
+        "ingredients": [
+            [
+                "house_token",
+                3
+            ]
+        ],
+        "product": [
+            ["export-house_token",
+            3]
+        ],
+        "weight": 0,
+        "cost": 0,
+        "pays": 2000000
     },
     {
         "name": "Jewelry",
@@ -2230,6 +2383,7 @@
         "cost": 15000,
         "pays": 0
     },
+
     {
         "name": "Rebar",
         "key_name": "rebar",
@@ -2313,9 +2467,9 @@
         "cost": 1000,
         "pays": 0
     },
-    {
-        "name": "Refine Raw Ore Mix",
-        "key_name": "refined-raw-ore-mix",
+      {
+        "name": "Refine Copper",
+        "key_name": "refined-copper",
         "category": "ls-foundry",
         "time": 1,
         "ingredients": [
@@ -2325,7 +2479,7 @@
             ]
         ],
         "product": [
-            ["refined-copper",1],
+                ["refined-copper",1],
             ["refined-zinc",1]
         ],
         "weight": 0,
@@ -2635,6 +2789,24 @@
         "weight": 50,
         "cost": 10250,
         "pays": 0
+    },
+     {
+        "name": "Propane",
+        "key_name": "propane",
+        "category": "davis-mega-mall",
+        "time": 1,
+        "ingredients": [
+            [
+                "propane",
+                1
+            ]
+        ],
+        "product": [
+            ["export-propane",1]
+        ],
+        "weight": 50,
+        "cost": 0,
+        "pays": 10000
     },
     {
         "name": "Refine Crude Oil",
@@ -3234,6 +3406,7 @@
         "cost": 30000,
         "pays": 0
     },
+
     {
         "name": "Deliver Asphalt 5x",
         "key_name": "export-asphalt",
@@ -4646,7 +4819,8 @@
         },
         {
             "key_name": "illegal-meth",
-            "category": "liquor-ace"
+            "category": "liquor-ace",
+            "cost": 10000
         },
         {
             "key_name": "hide",

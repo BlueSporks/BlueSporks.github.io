@@ -164,7 +164,9 @@ function makeGraph(totals, targets, ignore) {
                         continue
                     }
                 }
-                if (subRecipe.key in totals.itemRates && ing.item.key in totals.itemRates[subRecipe.key]) {
+                if (totals.rates.has(subRecipe) &&
+                    subRecipe.key in totals.itemRates &&
+                    ing.item.key in totals.itemRates[subRecipe.key]) {
                     if (node.name == "output") {
                         rate = ing.amount
                     } else {
@@ -594,4 +596,3 @@ export function renderTotals(totals, targets, ignore) {
                 .text(d => d.node.name + (d.node.count.isZero() ? "" : `\n${d.node.building.name} \u00d7 ${spec.format.count(d.node.count)}`))
     */
 }
-
