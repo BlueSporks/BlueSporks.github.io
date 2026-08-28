@@ -25,7 +25,7 @@
         import { plusHandler, clickTab, changeStrength, changePremium, changeMilk, changePerk, changeTruck, changeDistribution, changeCapacity } from "./events.js"
         import { init } from "./init.js"
         import { changeTheme, changeAccent } from "./settings.js"
-        import { exportData, resetData, newDataEntry, deleteDataEntry } from "./editor.js"
+        import { exportData, importData, resetData, newDataEntry, deleteDataEntry, downloadTutorial } from "./editor.js"
         handlers.plusHandler = plusHandler
         handlers.clickTab = clickTab
         handlers.changeStrength = changeStrength
@@ -38,9 +38,11 @@
         handlers.changeTheme = changeTheme
         handlers.changeAccent = changeAccent
         handlers.exportData = exportData
+        handlers.importData = importData
         handlers.resetData = resetData
         handlers.newDataEntry = newDataEntry
         handlers.deleteDataEntry = deleteDataEntry
+        handlers.downloadTutorial = downloadTutorial
         handlers.init = init
         setInterval(function() { api.updateTimers() }, 100)
         setTimeout(function() { d3.select('.bmc-btn-container').style('opacity',0.90) }, 1000)
@@ -49,7 +51,6 @@
     </script>
     <meta name="theme-color" content="#000000" />
     <link rel="shortcut icon" href="./images/tt_logov2_small.png" type="image/png">
-    <link rel="stylesheet" href="./css/leaflet@1.7.1.css">
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
@@ -96,11 +97,10 @@ limitations under the License.-->
         <button class="tab_button" id="graph_button" onclick="handlers.clickTab('graph')">Planner</button>
         <button class="tab_button" id="totals_button" onclick="handlers.clickTab('totals')">Items</button>
         <button class="tab_button" id="storage_button" onclick="handlers.clickTab('storage')">Storage</button>
-    <!--- <button class="tab_button" id="map_button" onclick="handlers.clickTab('map')">Map</button>-->
         <button class="tab_button" id="settings_button" onclick="handlers.clickTab('settings')">Settings</button>
         <button class="tab_button" id="log_button" onclick="handlers.clickTab('log')">Log</button>
         <button class="tab_button" id="about_button" onclick="handlers.clickTab('about')">About</button>
-        <button class="tab_button editor-tab-button" id="editor_button" onclick="handlers.clickTab('editor')">Edit data</button>
+        <button class="tab_button editor-tab-button" id="editor_button" onclick="handlers.clickTab('editor')">Edit Data</button>
     </div>
 
     <div id="graph_tab" class="tab graph">
@@ -147,11 +147,6 @@ limitations under the License.-->
             </div>
         </div>
     </div>
-<!--
-    <div id="map_tab" class="tab map">
-        <iframe src="./map/index.html" width="1200" height="800" style="max-width: 100%; max-height: 90vh; box-sizing: border-box;"></iframe>
-    </div>
--->
     <div id="totals_tab" class="tab">
         <table id="totals">
         <thead><tr></tr></thead>
@@ -184,12 +179,16 @@ limitations under the License.-->
     <div id="editor_tab" class="tab">
         <div class="editor-banner">
             <div>
-                <strong>Data editor</strong>
+                <strong>Data Editor</strong>
                 <span>Edit buildings, recipes, items, resources, miners, and belts. Changes are saved in this browser only.</span>
+                <p id="editor-description"></p>
             </div>
             <div class="editor-actions">
+                <button class="refresh" onclick="handlers.downloadTutorial()">Download Guide</button>
                 <button class="refresh" onclick="handlers.exportData()">Export JSON</button>
-                <button class="refresh" onclick="handlers.resetData()">Reset data</button>
+                <button class="refresh" onclick="handlers.importData()">Import JSON</button>
+                <input id="editor-import-input" type="file" accept=".json,application/json" onchange="handlers.importData(event)" hidden>
+                <button class="refresh" onclick="handlers.resetData()">Reset Data</button>
             </div>
         </div>
         <div id="editor" class="editor-layout"></div>

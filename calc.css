@@ -23,8 +23,8 @@
     --dark: #f4f4f2;
     --dark-overlay: rgba(244, 244, 242, 0.8);
     --medium: #e1e3e5;
-    --main: #ffffff;
-    --light: #d5d9dc;
+    --main: #347953;
+    --light: #00ff4c;
     --foreground: #242424;
     --bright: #111111;
     --link: #1769aa;
@@ -354,7 +354,7 @@ button.refresh {
     background: var(--bright);
   border-radius: 4px;
   width: 70px;
-  height: 20px;
+  height: 30px;
   display: inline-block;
   margin-top: -6px;
   text-align: center;
@@ -537,6 +537,7 @@ a.bmc-btn svg {
 }
 .editor-banner strong { display: block; color: var(--bright); font-size: 15px; }
 .editor-banner span { color: #8e9bab; font-size: 12px; }
+.editor-banner p { max-width: 780px; margin: 8px 0 0; color: #c8d2dd; font-size: 12px; line-height: 1.45; }
 .editor-actions { display: flex; gap: 8px; }
 .editor-layout { display: grid; grid-template-columns: 270px minmax(0, 1fr); gap: 12px; min-height: 560px; }
 .editor-list, .editor-form { border: 1px solid #3a4755; background: #1a232d; border-radius: 4px; }

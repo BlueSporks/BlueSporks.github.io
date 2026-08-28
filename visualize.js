@@ -16,7 +16,6 @@ import { spec } from "./factory.js"
 import { Rational, zero, one } from "./rational.js"
 import { Ingredient } from "./recipe.js"
 import { colors } from "./colors.js"
-import { updateMap } from "./map.js"
 
 const iconSize = 20
 
@@ -596,9 +595,6 @@ export function renderTotals(totals, targets, ignore) {
     }
     graphTab.style("display", origDisplay)
 */
-
-    // update map
-    updateMap(links)
 
     /*
     svg.append("g")

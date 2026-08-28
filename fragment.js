@@ -17,7 +17,7 @@ import { spec, DEFAULT_PURITY, DEFAULT_BELT } from "./factory.js"
 import { Rational } from "./rational.js"
 
 export const DEFAULT_THEME = "dark"
-export const DEFAULT_ACCENT = "#ff4a4a"
+export const DEFAULT_ACCENT = "#3eb444"
 
 export function formatSettings() {
     let settings = ""
