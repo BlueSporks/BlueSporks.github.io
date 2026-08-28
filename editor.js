@@ -21,7 +21,7 @@ function renderList() {
     tabs.selectAll("button").data(collections).join("button")
         .classed("selected", name => name === activeCollection)
         .text(name => `${fieldLabel(name)} (${(sourceData[name] || []).length})`)
-        .on("click", (_, name) => {
+        .on("click", name => {
             activeCollection = name
             activeIndex = 0
             renderEditor()
@@ -30,8 +30,8 @@ function renderList() {
         .selectAll("button").data(sourceData[activeCollection] || []).join("button")
         .classed("selected", (_, index) => index === activeIndex)
         .html(item => `<strong>${item.name || item.key_name || "Unnamed entry"}</strong><small>${item.key_name || ""}</small>`)
-        .on("click", (event, item, nodes) => {
-            activeIndex = nodes.indexOf(event.currentTarget)
+        .on("click", (item, index) => {
+            activeIndex = index
             renderEditor()
         })
 }
