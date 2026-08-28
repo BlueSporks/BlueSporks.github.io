@@ -28,7 +28,8 @@ class ApiLink {
         this.bank = 0
         this.loan = 0
         this.gamedata = {}
-        this.baseURL = 'https://tt.bouncer.nl/?'
+        this.baseURL = 'https://d.ttstats.eu/public-main/status'
+        this.betaServer = 'https://d.ttstats.eu/public-beta/status'
         
         this.storage = null
         this.vehicles = null
@@ -180,7 +181,7 @@ class ApiLink {
             }
         }
         
-        fetch(`${this.baseURL}path=widget/players.json&server=${this.server}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.server === "beta" ? this.betaServer : this.baseURL}/widget/players.json`, {method: "GET"}).then(r=>r.json()).then(async data => {
             if(data) {
                 this.players = {'t':new Date(), 'd': data}
                 localStorage.setItem("players", JSON.stringify(this.players));
@@ -299,7 +300,7 @@ class ApiLink {
 
     getWealth() {
         // actually get data
-        fetch(`${this.baseURL}path=wealth/${this.userid}&apikey=${this.apikey}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/wealth/${this.userid}`, {method: "GET", headers: {"X-Tycoon-Key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data.code == 200) {
                 this.wealth = {'t': this.roundedTime(), 'd': data}
                 localStorage.setItem("wealth", JSON.stringify(this.wealth));
@@ -362,7 +363,7 @@ class ApiLink {
 
     getStorage() {
         // actually get data
-        fetch(`${this.baseURL}path=storages/${this.userid}&apikey=${this.apikey}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/storages/${this.userid}`, {method: "GET", headers: {"X-Tycoon-Key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data.code == 200) {
                 if(this.storage) {
                     this.storage = {'t': this.roundedTime(), 'h': this.storage.d, 'd': data}
@@ -440,7 +441,7 @@ class ApiLink {
 
     getVehicles() {
         // actually get data
-        fetch(`${this.baseURL}path=trunks/${this.userid}&apikey=${this.apikey}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/trunks/${this.userid}`, {method: "GET", headers: {"X-Tycoon-Key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data.code == 200) {
                 if(this.vehicles) {
                     this.vehicles = {'t': this.roundedTime(), 'h': this.vehicles.d, 'd': data}
@@ -517,7 +518,7 @@ class ApiLink {
 
     getInventory() {
         // actually get data
-        fetch(`${this.baseURL}path=data/${this.userid}&apikey=${this.apikey}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/data/${this.userid}`, {method: "GET", headers: {"X-Tycoon-Key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data.code == 200) {
                 if(this.inventory) {
                     this.inventory = {'t': this.roundedTime(), 'h': this.inventory.d, 'd': data}
@@ -626,7 +627,7 @@ class ApiLink {
 
     validate(key) {
         this.apikey = key
-        fetch(`${this.baseURL}path=charges.json&apikey=${this.apikey}`, { method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/charges.json`, { method: "GET", headers: {"x-tycoon-key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data[0] > 0) {
                 
                 log.add('success',`Connected! ${data[0].toLocaleString()} charges remaining`)
@@ -648,11 +649,13 @@ class ApiLink {
                 d3.select("#api-invalid").style("display","inline-block")
                 d3.selectAll(".refresh-settings").style("display","none")
             }
+        }).catch(err => {
+            console.log(err);
         })
     }
 
     getFactionId(getFaction) {
-        fetch(`${this.baseURL}path=getuserfaq/${this.userid}&apikey=${this.apikey}`, {method: "GET"}).then(r=>r.json()).then(async data => {
+        fetch(`${this.baseURL}/getuserfaq/${this.userid}`, {method: "GET", headers: {"X-Tycoon-Key": this.apikey}}).then(r=>r.json()).then(async data => {
             if(data.code == 200) {
 
                 if(data.is_in_faction) {
