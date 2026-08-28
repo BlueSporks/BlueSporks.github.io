@@ -75,7 +75,7 @@ export class BuildTarget {
             .classed("target", true)
         element.append("button")
             .classed("targetButton ui", true)
-            .text("x")
+            .text("Remove Recipe")
             .attr("title", "Remove this item.")
             .on("click", removeHandler(this))
         this.element = element.node()
