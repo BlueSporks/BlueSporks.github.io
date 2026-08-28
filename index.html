@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Trucking Calculator for FiveM Transport Tycoon</title>
+    <title>Transport Tycoon | Trucking Calculator</title>
     <link rel="stylesheet" type="text/css" href="calc.css">
     <link rel="stylesheet" type="text/css" href="dropdown.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-W9113B2HZ7"></script>
@@ -25,6 +25,7 @@
         import { plusHandler, clickTab, changeStrength, changePremium, changeMilk, changePerk, changeTruck, changeDistribution, changeCapacity } from "./events.js"
         import { init } from "./init.js"
         import { changeTheme, changeAccent } from "./settings.js"
+        import { exportData, resetData, newDataEntry, deleteDataEntry } from "./editor.js"
         handlers.plusHandler = plusHandler
         handlers.clickTab = clickTab
         handlers.changeStrength = changeStrength
@@ -36,6 +37,10 @@
         handlers.changeCapacity = changeCapacity
         handlers.changeTheme = changeTheme
         handlers.changeAccent = changeAccent
+        handlers.exportData = exportData
+        handlers.resetData = resetData
+        handlers.newDataEntry = newDataEntry
+        handlers.deleteDataEntry = deleteDataEntry
         handlers.init = init
         setInterval(function() { api.updateTimers() }, 100)
         setTimeout(function() { d3.select('.bmc-btn-container').style('opacity',0.90) }, 1000)
@@ -95,6 +100,7 @@ limitations under the License.-->
         <button class="tab_button" id="settings_button" onclick="handlers.clickTab('settings')">Settings</button>
         <button class="tab_button" id="log_button" onclick="handlers.clickTab('log')">Log</button>
         <button class="tab_button" id="about_button" onclick="handlers.clickTab('about')">About</button>
+        <button class="tab_button editor-tab-button" id="editor_button" onclick="handlers.clickTab('editor')">Edit data</button>
     </div>
 
     <div id="graph_tab" class="tab graph">
@@ -173,6 +179,20 @@ limitations under the License.-->
             </tr>
         </tfoot>
         </table>
+    </div>
+
+    <div id="editor_tab" class="tab">
+        <div class="editor-banner">
+            <div>
+                <strong>Data editor</strong>
+                <span>Edit buildings, recipes, items, resources, miners, and belts. Changes are saved in this browser only.</span>
+            </div>
+            <div class="editor-actions">
+                <button class="refresh" onclick="handlers.exportData()">Export JSON</button>
+                <button class="refresh" onclick="handlers.resetData()">Reset data</button>
+            </div>
+        </div>
+        <div id="editor" class="editor-layout"></div>
     </div>
 
     <div id="settings_tab" class="tab">

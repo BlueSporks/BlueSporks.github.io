@@ -18,9 +18,12 @@ import { loadSettings } from "./fragment.js"
 import { getItems } from "./item.js"
 import { getRecipes } from "./recipe.js"
 import { renderSettings } from "./settings.js"
+import { initEditor, getEditorData } from "./editor.js"
 
 function loadData(settings) {
     d3.json("data/data.json").then(function(data) {
+        data = getEditorData() || data
+        initEditor(data)
         let items = getItems(data)
         let recipes = getRecipes(data, items)
         let buildings = getBuildings(data)
